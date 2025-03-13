@@ -1,22 +1,34 @@
-import time, rainbowio
-from TerrainTronics.Caernarfon import CaernfarfonCastle
-from TerrainTronics.I2C.QtRotaryEncoder import QtRotary
+#type: ignore
+import time, rainbowio  
 
-caernarfon = CaernfarfonCastle( "WemosS2Mini", neoPixelCount=9 )
+from TerrainTronics.Main import MainManager
+main = MainManager()
+
+targetAngle = main.addControlVariable( "angle", "servo 1 angle", min=20, max=160, kind="int" )
+targetColor = main.addControlVariable( "color", kind="RGB" )
+
+caernarfon = main.addCaernarfon( "WemosS2Mini", neoPixelCount=9 )
 caernarfon.initServo(1)
-qtr = QtRotary(caernarfon.i2c)
 
-cycle = 0
-cyclesPerSecond = 40
-
-while True:
-    cycle += 1
-    color = rainbowio.colorwheel(cycle)
-    servoAngle = 20 + (cycle % 120)   # 20 - 160
+def encoderChanged(delta): 
+    targetAngle.move( delta )
+    print( f"targetAngle now {targetAngle.value}")
     
-    caernarfon.servo1.angle = servoAngle
+qtr = main.adafruitFactory.createQTRotaryEncoder(caernarfon.i2c)
+qtr.onMove( encoderChanged )
+
+def loop():
+    color = rainbowio.colorwheel(main.cycle)
     caernarfon.pixels.fill(color)
     caernarfon.pixels.show()
-    qtr.updateStemmaEncoder()
 
-    time.sleep( 1.0 / (cyclesPerSecond *1.0) )
+    qtr.pixel.fill(color)
+    qtr.updateStemmaEncoder()
+    caernarfon.servo1.angle = targetAngle.value
+
+main.addTask( loop )
+
+webServer = main.addBasicWebServer()
+
+print( "calling main.run" )
+main.run()
