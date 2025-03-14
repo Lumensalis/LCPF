@@ -1,11 +1,19 @@
-#type: ignore
-import time, rainbowio  
+
+from TerrainTronics.Demos.CaernarfonLavaLights import demoMain
+
+print( "running demo" )
+demoMain()
+
+print( "demo complete" )
+
+
+import time, rainbowio  #type: ignore
 
 from TerrainTronics.Main import MainManager
 main = MainManager()
 
-targetAngle = main.addControlVariable( "angle", "servo 1 angle", min=20, max=160, kind="int" )
-targetColor = main.addControlVariable( "color", kind="RGB" )
+targetAngle = main.addControlVariable( "angle", "Servo Angle", min=20, max=160, kind="int" )
+targetColor = main.addControlVariable( "color", "Pixel Strip Color", kind="RGB" )
 
 caernarfon = main.addCaernarfon( "WemosS2Mini", neoPixelCount=9 )
 caernarfon.initServo(1)
@@ -22,7 +30,7 @@ def loop():
     caernarfon.pixels.fill(color)
     caernarfon.pixels.show()
 
-    qtr.pixel.fill(color)
+    qtr.pixel.fill(targetColor.value)
     qtr.updateStemmaEncoder()
     caernarfon.servo1.angle = targetAngle.value
 

@@ -7,5 +7,10 @@
 			"path": "C:/Users/jbrel/git/TerrainTronicsCP"
 		}
 	],
-    "settings": {}
+    "settings": {
+        "python.autoComplete.extraPaths": [
+             "CircuitPyPartialImage/lib"
+        ],
+        "python.analysis.autoSearchPaths": false
+    }
 }
