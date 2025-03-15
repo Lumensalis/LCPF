@@ -1,17 +1,6 @@
 This is a collection of CircuitPython code for use with TerrainTronics products
+ 
+ - [Supported Controllers](docs/Controllers/SupportedControllers.MD)
+   - currently the ONLY tested controller is the [LolinS2Mini ESP32-S2](docs/Controllers/LolinS2Mini.MD)
 
-
-## Contents
-
-### CircuitPyPartialImage
-
-This contains the TerrainTronics specific files which need to be copied 
-to the CIRCUIT_PY drive
-
-### VSCode
-
-VSCode workspace - this will probably go away
-
-### syncFromF.bat
-
-batch file to update CIRCUIT_PY drive from CircuitPyPartialImage
+ - [Repo Contents](docs/RepoContents.MD)
