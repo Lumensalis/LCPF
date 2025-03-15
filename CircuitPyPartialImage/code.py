@@ -51,29 +51,31 @@ def loop():
     caernarfon.pixels.fill(color)
     caernarfon.pixels.show()
 
-    # clear the pixel we set last loop
-    setDisplayPixel( 0, displayTargetPixel )
+    # set LED on QTRotaryEncoder - targetColor changed via Web UI
+    qtr.pixel.fill(targetColor.value)
+    qtr.updateStemmaEncoder()
+    
+    # update servo - angle must stay within range to avoid exceptions
+    s1angle = constrain( 
+            targetAngle.value + ( (ny * 40) if nunchuk.buttons.C else 0),
+            20, 160
+        )
+    caernarfon.servo1.angle = s1angle
+    
+    #update display
+    updateTextEveryNCycles = 10
+    if main.cycle % updateTextEveryNCycles == 0:
+        display.fill(0)
+        display.text(f'{int(main.cycle/updateTextEveryNCycles)} {int(s1angle)}', 0, 0, 1, size=2 )
+    else:
+        # clear the pixel we set last loop
+        setDisplayPixel( 0, displayTargetPixel )
 
     # determine new location - wrapping based on cycle PLUS joystick position
     displayTargetPixel[0] = int(main.cycle + nx*display.displayWidth) % display.displayWidth
     displayTargetPixel[1] = int(main.cycle + ny*display.displayHeight) % display.displayHeight
     setDisplayPixel( 1, displayTargetPixel )
     
-    # set LED on QTRotaryEncoder - targetColor changed via Web UI
-    qtr.pixel.fill(targetColor.value)
-    qtr.updateStemmaEncoder()
-    
-    # determine servo angle - must stay within range to avoid exceptions
-    s1angle = constrain( 
-            targetAngle.value + ( (ny * 40) if nunchuk.buttons.C else 0),
-            20, 160
-        )
-    
-    caernarfon.servo1.angle = s1angle
-    
-    if main.cycle % 42 == 0:
-        display.fill(0)
-        display.text(f'{main.cycle} {s1angle}', 0, 0, 1 )
     display.show()
 
 main.addTask( loop )
