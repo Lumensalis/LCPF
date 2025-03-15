@@ -71,10 +71,9 @@ def loop():
     
     caernarfon.servo1.angle = s1angle
     
-    if main.cycle % 10 == 0:
+    if main.cycle % 42 == 0:
         display.fill(0)
         display.text(f'{main.cycle} {s1angle}', 0, 0, 1 )
-        
     display.show()
 
 main.addTask( loop )

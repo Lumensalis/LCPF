@@ -11,6 +11,10 @@
         "python.autoComplete.extraPaths": [
              "CircuitPyPartialImage/lib"
         ],
-        "python.analysis.autoSearchPaths": false
+        "python.analysis.autoSearchPaths": false,
+        "cSpell.words": [
+            "mdns",
+            "socketpool"
+        ]
     }
 }

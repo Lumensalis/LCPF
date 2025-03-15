@@ -2,8 +2,11 @@ If you have a controller which supports UF2 (like an ESP32-S2 or ESP32-S3),  the
 
  
   - install Circuit Python
-  - copy the TT code to <CIRCUIT_PY>:\lib
+  - install to to <CIRCUIT_PY>
     - (where CIRCUIT_PY is the drive letter for the USB file system that appears when you plug in the controller)
+    - dependencies from bundles
+    - copy the TT code to <CIRCUIT_PY>:\lib
+    
 
 
 Initial Configuration
@@ -12,6 +15,9 @@ Initial Configuration
  
 ```
 TTCP_CONTROLLER = "WemosS2Mini"
+
+# make available under "http://MyControllerHostname.local"
+TTCP_HOSTNAME = "MyControllerHostname"
 
 CIRCUITPY_WIFI_SSID = "MyWifiSSID"
 CIRCUITPY_WIFI_PASSWORD = "MyWifiPassword"
