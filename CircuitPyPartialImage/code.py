@@ -8,7 +8,7 @@ sys.exit()
 #############################################################################
 
 
-from TerrainTronics.Main import MainManager
+from LumensalisCP.Main import MainManager
 main = MainManager()
 
 from adafruit_simplemath import constrain

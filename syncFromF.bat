@@ -8,6 +8,7 @@ set ROBOCOPY_ARGS=/E /XD .git /COPY:DAT  /XO /FFT /DST /TS /NOCLONE /TIMFIX /NJH
 set XCOPY_FILE_ARGS=/D /Y
 
 call :copy_cp_path lib\TerrainTronics
+call :copy_cp_path lib\LumensalisCP
 call :copy_cp_file code.py
 
 set UPDATE_FROM_CIRCUITPY=0

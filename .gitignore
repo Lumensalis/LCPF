@@ -1,3 +1,4 @@
 /CircuitPyPartialImage/lib/adafruit*
+/CircuitPyPartialImage/lib/async*
 *.mpy
 CircuitPyDependencies
