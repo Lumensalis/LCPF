@@ -11,9 +11,13 @@ If you have a controller which supports UF2 (like an ESP32-S2 or ESP32-S3),  the
 
 Initial Configuration
 
- - Create/edit <CIRCUIT_PY>:\settings.toml
+
+# settings.toml
+This is a file on the CIRCUITPY drive ( <CIRCUIT_PY>:\settings.toml ) 
+which is used to set the configuration for the local controller.  For example :
  
 ```
+# set controller type
 TTCP_CONTROLLER = "WemosS2Mini"
 
 # make available under "http://MyControllerHostname.local"

@@ -1,3 +1,13 @@
+
+from TerrainTronics.Demos import CaernarfonFrankenDemo
+CaernarfonFrankenDemo.demoMain()
+
+import sys
+sys.exit()
+
+#############################################################################
+
+
 from TerrainTronics.Main import MainManager
 main = MainManager()
 
@@ -47,8 +57,10 @@ def loop():
     
     # change color on neopixel strip - 
     #  main.cycle increments automatically on every loop
-    color = main.wheel( main.cycle + nx*30 )
-    caernarfon.pixels.fill(color)
+    wheelTargetBase =  main.millis / 25 + nx*30
+    pxOffset =-255/caernarfon.pixels.n 
+    for px in range(caernarfon.pixels.n):
+        caernarfon.pixels[px] = main.wheel( wheelTargetBase + (px * pxOffset) )
     caernarfon.pixels.show()
 
     # set LED on QTRotaryEncoder - targetColor changed via Web UI
