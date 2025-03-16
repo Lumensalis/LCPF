@@ -30,11 +30,11 @@ You need the ability to see console text output (error messages, print statement
 
 ## code.py
 
-[***CIRCUITPY***](../CIRCUITPY_DRIVE.MD)__:/code.py__ is a very special file.  It is loaded and run each time your controller starts (or restarts)[^safeMode]
+[***CIRCUITPY***](../CIRCUITPY_DRIVE.MD)__:\code.py__ is a very special file.  It is loaded and run each time your controller starts (or restarts)[^safeMode]
 
 ## Uploading your code
 
-A controller running CircuitPython with a [CIRCUITPY drive](../CIRCUITPY_DRIVE.MD), simply saving your changes to [***CIRCUITPY***](../CIRCUITPY_DRIVE.MD)__:\code.py__ (or any other file on your [CIRCUITPY drive](../CIRCUITPY_DRIVE.MD)) is all you need to do[^editors].  There is no separate "firmware upload" step required.  For example, here's what you'd see saving 
+For a controller running CircuitPython with a [CIRCUITPY drive](../CIRCUITPY_DRIVE.MD), simply saving your changes to [***CIRCUITPY***](../CIRCUITPY_DRIVE.MD)__:\code.py__ (or any other file on your [CIRCUITPY drive](../CIRCUITPY_DRIVE.MD)) is all you need to do[^editors].  There is no separate "firmware upload" step required.  For example, here's what you'd see saving 
 
 ```python
 print( "Hello there!\n" )
