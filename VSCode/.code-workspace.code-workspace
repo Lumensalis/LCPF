@@ -15,6 +15,12 @@
         "cSpell.words": [
             "mdns",
             "socketpool"
-        ]
+        ],
+        "python.languageServer": "Pylance",
+        "python.analysis.diagnosticSeverityOverrides": {
+            "reportMissingModuleSource": "none",
+            "reportShadowedImports": "none"
+        },
+        "circuitpython.board.version": "9.2.4"
     }
 }
