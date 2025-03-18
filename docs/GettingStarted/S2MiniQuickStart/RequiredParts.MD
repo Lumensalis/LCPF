@@ -1,0 +1,12 @@
+## Required Parts
+  - Controller
+  Get an [Wemos S2 Mini](../Controllers/LolinS2Mini.MD) 
+    - from Amazon ( [HiLetGo](https://www.amazon.com/dp/B0B291LZ99) or [DiGiYes](https://www.amazon.com/dp/B0BXX6R15D) ) or AliExpress ( [Lolin on AliExpress](https://www.aliexpress.us/item/3256802958877264.html) )
+    - Do **NOT** just buy anything called an "ESP32 S2 Mini" - there are several different controllers using "Mini" in their name / description which are not the same design as the [Wenos S2 Mini](https://www.wemos.cc/en/latest/s2/s2_mini.html) and will NOT work with these directions.  Just buy one from one of the above links and you'll be good.
+
+  - Caernarfon Castle Kit
+  Get a [Caernarfon Castle Kit](https://www.tindie.com/products/terraintronics/caernarfon-castle-kit) from TerrainTronics.  It comes with 
+    - an IR remote control and receiver
+    - a servo motor and parts to help concert rotational to linear motion
+    - a Wemos D1 Mini which you won't need - you'll be using the Wemos S2 Mini instead
+    
