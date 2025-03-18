@@ -1,3 +1,4 @@
-print( "Hello there!\n\n" )
-from TerrainTronics.Demos import CaernarfonFrankenDemo
-CaernarfonFrankenDemo.demoMain()
+print( "Hello there!\n" )
+from TerrainTronics.Demos.S2MiniQuickStart.NeoPixelDemo import demoMain
+
+demoMain()

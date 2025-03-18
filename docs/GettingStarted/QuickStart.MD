@@ -28,12 +28,20 @@ If you're looking for a simple guide to getting started with terrain effects, th
   - Setup NeoPixels
     - if not using pre-wired NeoPixels, solder connectors on NeoPixels
   - Plug everything together
-    - Contorller to USB on your PC
+    - Controller to USB on your PC
+    - NeoPixels and Servo to [Caernarfon Castle](https://github.com/Audio-Rochey/Terrain-Tronics-Caernarfon-Castle)
   - Run [S2MiniQuickStartTest](S2MiniQuickStart/S2MiniQuickStartTest.MD)
 
 ## What's next?
 
-Now you should have a controller with working with LEDs, remote control, and servos
+You should have a controller with working with LEDs, remote control, and servos.  Now the fun part begins - what do YOU want to do with it? 
+
+There is a little bit of programming involved, but if you've ever tried (or even looked at examples of) anything like this, you'll probably be surprised by just how little there is.
+
+The [Start Using CircuitPython](CircuitPython.MD) instructions will walk you through the basics of modifying the "program" on your controller.  Once you've gone through those,  there will be plenty of examples you can use and modify to get things going in [***CIRCUITPY***](CIRCUITPY_DRIVE.MD)__:\lib\TerrainTronics\Demos\S2MiniQuickStart__.  For example
+
+  - Moving Rainbow in [NeoPixelDemo.py](../../CircuitPyPartialImage/lib/TerrainTronics/Demos/S2MiniQuickStart/NeoPixelDemo.py)
+  - (more to come)
 
 -----
 
