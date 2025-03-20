@@ -1,4 +1,4 @@
-This is a collection of CircuitPython code for use with TerrainTronics products
+This is a collection of CircuitPython code for use with TerrainTronics products sponsored by [Lumensalis Terrain](https://lumensalis.com)
  
  - [Quick Start for the technically challenged...](docs/GettingStarted/QuickStart.MD)
  - [Supported Controllers](docs/Controllers/SupportedControllers.MD)
