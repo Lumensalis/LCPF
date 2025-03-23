@@ -1,19 +1,22 @@
 {
 	"folders": [
-		{
-			"path": "F:/"
-		},
-		{
-			"path": "C:/Users/jbrel/git/TerrainTronicsCP"
-		}
-	],
+        {
+            "path": "C:/Users/jbrel/git/TerrainTronicsCP"
+        }
+    ],
     "settings": {
         "python.autoComplete.extraPaths": [
              "CircuitPyPartialImage/lib"
         ],
         "python.analysis.autoSearchPaths": false,
         "cSpell.words": [
+            "busio",
+            "colorwheel",
+            "displayio",
             "mdns",
+            "microcontroller",
+            "pwmio",
+            "rainbowio",
             "socketpool"
         ],
         "python.languageServer": "Pylance",

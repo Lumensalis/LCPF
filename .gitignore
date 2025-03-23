@@ -4,3 +4,4 @@
 CircuitPyDependencies
 D1_PCB-backups
 *.kicad*.lck
+*.gbr

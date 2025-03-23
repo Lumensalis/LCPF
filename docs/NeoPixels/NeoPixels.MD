@@ -4,7 +4,7 @@
 
 ## Module Types
 
-NeoPixels come in a wide variety of packages
+NeoPixels come in a wide variety of packageshttps://www.amazon.com/Tapes-Adhesives-Sealants/b/?ie=UTF8&node=256225011&ref_=sv_indust_8
 
 ### Single
   - Through Hole - 4 leg LED package
