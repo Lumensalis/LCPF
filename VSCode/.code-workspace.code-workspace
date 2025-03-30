@@ -10,11 +10,18 @@
         ],
         "python.analysis.autoSearchPaths": false,
         "cSpell.words": [
+            "analogio",
+            "audiobusio",
+            "audiocore",
+            "audiomixer",
+            "audiomp",
             "busio",
             "colorwheel",
+            "digitalio",
             "displayio",
             "mdns",
             "microcontroller",
+            "pulseio",
             "pwmio",
             "rainbowio",
             "socketpool"
