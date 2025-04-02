@@ -2,10 +2,13 @@
 
 set CIRCUITPY_FLASH_PATH=F:
 set CIRCUITPY_IMAGE_PATH=.\CircuitPyPartialImage
+set CIRCUITPY_DEPENDNCIES_PATH=.\CircuitPyDependencies
 set ROBOCOPY_NONVERBOSE= /NJH /NJS /NDL
-set ROBOCOPY_ARGS=/E /XD .git /COPY:DAT  /XO /FFT /DST /TS /NOCLONE /TIMFIX /NJH
+set ROBOCOPY_ARGS=/E /XD .git /COPY:DAT  /XO /FFT /DST /TS /NOCLONE /TIMFIX /NJH 
 
 set XCOPY_FILE_ARGS=/D /Y
+
+rem robocopy %CIRCUITPY_DEPENDNCIES_PATH% %CIRCUITPY_FLASH_PATH% %ROBOCOPY_ARGS% 
 
 call :copy_cp_path lib\TerrainTronics
 call :copy_cp_path lib\LumensalisCP
@@ -13,6 +16,8 @@ call :copy_cp_file code.py
 
 set UPDATE_FROM_CIRCUITPY=0
 if "x%1" EQU "x-F" set UPDATE_FROM_CIRCUITPY=1
+
+if "x%1" EQU "x1" set ROBOCOPY_ARGS= /MAXAGE:1 %ROBOCOPY_ARGS% 
 
 GOTO :eof
 
@@ -26,6 +31,7 @@ if %UPDATE_FROM_CIRCUITPY% EQU 1 (
 
 echo ... %CIRCUITPY_IMAGE_PATH% to %CIRCUITPY_FLASH_PATH%
 robocopy %CIRCUITPY_IMAGE_PATH%\%1 %CIRCUITPY_FLASH_PATH%\%1 %2 %3 %4 %ROBOCOPY_ARGS% 
+
 
 exit /B
 
