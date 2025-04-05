@@ -1,0 +1,3 @@
+[submodule "lumensaliscplib"]
+	path = lumensaliscplib
+	url = https://gitlab.com/lumensalis/lumensaliscplib.git

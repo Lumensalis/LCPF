@@ -1,19 +1,24 @@
 @echo off
 
 set CIRCUITPY_FLASH_PATH=F:
-set CIRCUITPY_IMAGE_PATH=.\CircuitPyPartialImage
+set CIRCUITPY_IMAGE_PATH=.\lumensaliscplib
 set CIRCUITPY_DEPENDNCIES_PATH=.\CircuitPyDependencies
 set ROBOCOPY_NONVERBOSE= /NJH /NJS /NDL
 set ROBOCOPY_ARGS=/E /XD .git /COPY:DAT  /XO /FFT /DST /TS /NOCLONE /TIMFIX /NJH 
 
 set XCOPY_FILE_ARGS=/D /Y
 
+rem set ONGOING_COPY_ARGS=/E /XD .git /XF *.mpy /COPY:DAT /XO /FFT /DST /TS /MON:1 /NOCLONE /TIMFIX /NJH  %ROBOCOPY_NONVERBOSE%
+rem robocopy %CIRCUITPY_IMAGE_PATH% %CIRCUITPY_FLASH_PATH%\lib %ONGOING_COPY_ARGS%  
+rem goto :eof
+
 rem robocopy %CIRCUITPY_DEPENDNCIES_PATH% %CIRCUITPY_FLASH_PATH% %ROBOCOPY_ARGS% 
 
-call :copy_cp_path lib\TerrainTronics
-call :copy_cp_path lib\LumensalisCP
-call :copy_cp_file code.py
+call :copy_image_path_to_lib TerrainTronics
+call :copy_image_path_to_lib LumensalisCP
+rem call :copy_cp_file code.py
 
+GOTO :eof
 set UPDATE_FROM_CIRCUITPY=0
 if "x%1" EQU "x-F" set UPDATE_FROM_CIRCUITPY=1
 
@@ -21,23 +26,19 @@ if "x%1" EQU "x1" set ROBOCOPY_ARGS= /MAXAGE:1 %ROBOCOPY_ARGS%
 
 GOTO :eof
 
-:copy_cp_path
+:copy_image_path_to_lib
 echo SYNCING  %1 %2 %3 BETWEEN %CIRCUITPY_FLASH_PATH% AND %CIRCUITPY_IMAGE_PATH%
 
-if %UPDATE_FROM_CIRCUITPY% EQU 1 (
-    REM echo ... %CIRCUITPY_FLASH_PATH% to %CIRCUITPY_IMAGE_PATH%
-    REM robocopy %CIRCUITPY_FLASH_PATH%\%1 %CIRCUITPY_IMAGE_PATH%\%1 %2 %3 %4 %ROBOCOPY_ARGS% 
-)
 
-echo ... %CIRCUITPY_IMAGE_PATH% to %CIRCUITPY_FLASH_PATH%
-robocopy %CIRCUITPY_IMAGE_PATH%\%1 %CIRCUITPY_FLASH_PATH%\%1 %2 %3 %4 %ROBOCOPY_ARGS% 
+
+echo ... %CIRCUITPY_IMAGE_PATH% to %CIRCUITPY_FLASH_PATH%\lib
+robocopy %CIRCUITPY_IMAGE_PATH%\%1 %CIRCUITPY_FLASH_PATH%\lib\%1 %2 %3 %4 %ROBOCOPY_ARGS% 
 
 
 exit /B
 
 
 :copy_cp_file
-rem call :copy_cp_path . %1
 echo SYNCING  %1 FROM  %CIRCUITPY_IMAGE_PATH% TO %CIRCUITPY_FLASH_PATH%
 XCOPY  %CIRCUITPY_IMAGE_PATH%\%1 %CIRCUITPY_FLASH_PATH%\%1 %XCOPY_FILE_ARGS%
 echo SYNCING  %1 FROM  %CIRCUITPY_FLASH_PATH% TO %CIRCUITPY_IMAGE_PATH%

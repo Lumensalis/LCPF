@@ -17,6 +17,7 @@
             "audiomp",
             "busio",
             "colorwheel",
+            "Cylon",
             "digitalio",
             "displayio",
             "mdns",
@@ -24,6 +25,7 @@
             "pulseio",
             "pwmio",
             "rainbowio",
+            "Refreshable",
             "socketpool"
         ],
         "python.languageServer": "Pylance",
@@ -31,6 +33,18 @@
             "reportMissingModuleSource": "none",
             "reportShadowedImports": "none"
         },
-        "circuitpython.board.version": "9.2.4"
+        "circuitpython.board.version": "9.2.6",
+        "emeraldwalk.runonsave": {
+            "commands": [
+                {
+                    "match": "lumensaliscplib.*\\.py",
+                    "cmd": "echo runOnSave matched ${relativeFile}"
+                },
+                {
+                    "match": "lumensaliscplib.*\\.py",
+                    "cmd": "python  ${workspaceFolder}\\devOps\\fileSaveSync.py  ${relativeFile}"
+                }
+            ]
+        }
     }
 }
