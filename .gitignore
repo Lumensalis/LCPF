@@ -7,4 +7,4 @@ D1_PCB-backups
 *.gbr
 PCB/*.zip
 *PCB/*/*backups/*.zip
-
+fss.log
