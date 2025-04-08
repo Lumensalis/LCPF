@@ -1,7 +1,5 @@
 /CircuitPyPartialImage/lib/adafruit*
 /CircuitPyPartialImage/lib/async*
-*.mpy
-CircuitPyDependencies
 D1_PCB-backups
 *.kicad*.lck
 *.gbr
