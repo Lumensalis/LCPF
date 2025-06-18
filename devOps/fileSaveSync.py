@@ -1,7 +1,7 @@
 import sys, shutil, os.path
 print( f"args = {sys.argv}" )
 
-targetDir = "F:\\lib"
+targetDir = "E:\\lib"
 submoduleDir = 'lumensaliscplib'
 
 def syncFile():

@@ -1,6 +1,6 @@
 @echo off
 
-set CIRCUITPY_FLASH_PATH=F:
+set CIRCUITPY_FLASH_PATH=E:
 set CIRCUITPY_IMAGE_PATH=.\lumensaliscplib
 set CIRCUITPY_DEPENDNCIES_PATH=.\CircuitPyDependencies
 set ROBOCOPY_NONVERBOSE= /NJH /NJS /NDL
