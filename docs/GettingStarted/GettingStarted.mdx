@@ -5,8 +5,8 @@
 
 - Install CircuitPython and the TerrainTronics bundle on your controller.
   - TODO: more detail / better instructions for this
-  - for now look at details for your controller under [Supported Controllers](../Controllers/SupportedControllers.MD) and then [Initial Controler Setup](InitialControllerSetup.MD)
-  - The rest of the instructions below assume that this has been done, and you have a working [CIRCUITPY drive](../CIRCUITPY_DRIVE.MD)
+  - for now look at details for your controller under [Supported Controllers](../Controllers/SupportedControllers.mdx) and then [Initial Controler Setup](InitialControllerSetup.mdx)
+  - The rest of the instructions below assume that this has been done, and you have a working [CIRCUITPY drive](../CIRCUITPY_DRIVE.mdx)
 
 ## Setup a supported editor
 
@@ -30,11 +30,11 @@ You need the ability to see console text output (error messages, print statement
 
 ## code.py
 
-[***CIRCUITPY***](../CIRCUITPY_DRIVE.MD)__:\code.py__ is a very special file.  It is loaded and run each time your controller starts (or restarts)[^safeMode]
+[***CIRCUITPY***](../CIRCUITPY_DRIVE.mdx)__:\code.py__ is a very special file.  It is loaded and run each time your controller starts (or restarts)[^safeMode]
 
 ## Uploading your code
 
-For a controller running CircuitPython with a [CIRCUITPY drive](../CIRCUITPY_DRIVE.MD), simply saving your changes to [***CIRCUITPY***](../CIRCUITPY_DRIVE.MD)__:\code.py__ (or any other file on your [CIRCUITPY drive](../CIRCUITPY_DRIVE.MD)) is all you need to do[^editors].  There is no separate "firmware upload" step required.  For example, here's what you'd see saving 
+For a controller running CircuitPython with a [CIRCUITPY drive](../CIRCUITPY_DRIVE.mdx), simply saving your changes to [***CIRCUITPY***](../CIRCUITPY_DRIVE.mdx)__:\code.py__ (or any other file on your [CIRCUITPY drive](../CIRCUITPY_DRIVE.mdx)) is all you need to do[^editors].  There is no separate "firmware upload" step required.  For example, here's what you'd see saving 
 
 ```python
 print( "Hello there!\n" )
@@ -43,23 +43,23 @@ from TerrainTronics.Demos import CaernarfonFrankenDemo
 CaernarfonFrankenDemo.demoMain()
 ```
 
-to [***CIRCUITPY***](../CIRCUITPY_DRIVE.MD)__:\code.py__ with Thonny :
+to [***CIRCUITPY***](../CIRCUITPY_DRIVE.mdx)__:\code.py__ with Thonny :
 
 ![alt text](thonnyCodePy.png)
 
 
 ## Playing with Demos
 
-There are files for demos In [***CIRCUITPY_DRIVE***](../CIRCUITPY_DRIVE.MD)__:\libs\TerrainTronics\Demos_
+There are files for demos In [***CIRCUITPY_DRIVE***](../CIRCUITPY_DRIVE.mdx)__:\libs\TerrainTronics\Demos_
 
-[***CIRCUITPY_DRIVE***](../CIRCUITPY_DRIVE.MD)__:\code.py__ is a file that gets automatically run when the controller boots
+[***CIRCUITPY_DRIVE***](../CIRCUITPY_DRIVE.mdx)__:\code.py__ is a file that gets automatically run when the controller boots
 
-There are a number of ways to run a demo. For example, to run  **CaernarfonLavaLights** (at [***CIRCUITPY_DRIVE***](../CIRCUITPY_DRIVE.MD)__:\libs\TerrainTronics\Demos\CaernarfonLavaLights.py__ ),  [***CIRCUITPY_DRIVE***](../CIRCUITPY_DRIVE.MD)__:\code.py__ could look like
+There are a number of ways to run a demo. For example, to run  **CaernarfonLavaLights** (at [***CIRCUITPY_DRIVE***](../CIRCUITPY_DRIVE.mdx)__:\libs\TerrainTronics\Demos\CaernarfonLavaLights.py__ ),  [***CIRCUITPY_DRIVE***](../CIRCUITPY_DRIVE.mdx)__:\code.py__ could look like
 ```
 from TerrainTronics.Demos import CaernarfonLavaLights
 CaernarfonLavaLights.demoMain()
 ```
-or you could copy the contents of [***CIRCUITPY_DRIVE***](../CIRCUITPY_DRIVE.MD)__:\libs\TerrainTronics\Demos\CaernarfonLavaLights.py__ into [***CIRCUITPY_DRIVE***](../CIRCUITPY_DRIVE.MD)__:\code.py__ and add ```demoMain()```
+or you could copy the contents of [***CIRCUITPY_DRIVE***](../CIRCUITPY_DRIVE.mdx)__:\libs\TerrainTronics\Demos\CaernarfonLavaLights.py__ into [***CIRCUITPY_DRIVE***](../CIRCUITPY_DRIVE.mdx)__:\code.py__ and add ```demoMain()```
 ```
 # copied contents from CaernarfonLavaLights.py ...
 

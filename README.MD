@@ -6,12 +6,12 @@ This is a collection of CircuitPython code for use with TerrainTronics products 
 
  - [Quick Start for the technically challenged...](docs/GettingStarted/QuickStart.mdx)
  
- - [Supported Controllers](docs/Controllers/SupportedControllers.MD)
-   - currently the ONLY tested controller is the [LolinS2Mini ESP32-S2](docs/Controllers/LolinS2Mini.MD)
-   - to setup a new LolinS2Mini, first do the [initial CircuitPython install](docs/Controllers/LolinS2Mini.MD#initial-setup), then install the [dependencies](docs/CIRCUITPY_Dependncies.MD)
+ - [Supported Controllers](docs/Controllers/SupportedControllers.mdx)
+   - currently the ONLY tested controller is the [LolinS2Mini ESP32-S2](docs/Controllers/LolinS2Mini.mdx)
+   - to setup a new LolinS2Mini, first do the [initial CircuitPython install](docs/Controllers/LolinS2Mini.mdx#initial-setup), then install the [dependencies](docs/CIRCUITPY_Dependncies.mdx)
 
  - [Getting Started](docs/GettingStarted/GettingStarted.mdx)
- - [Repo Contents](docs/RepoContents.MD)
+ - [Repo Contents](docs/RepoContents.mdx)
 
  - [source subrepo](https://github.com/Lumensalis/LCPF) 
   - most actual source code is in https://github.com/Lumensalis/LCPF
