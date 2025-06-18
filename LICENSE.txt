@@ -3,7 +3,7 @@ All Rights Reserved
 
 Permission is hereby granted to use this software and associated 
 documentation files (the "Software") solely for the purpose of adding
-effects to their personal projects for their personal use. 
+effects to your personal projects for your personal use. 
 
 ALL OTHER RIGHTS RESERVED.  Specifically, you may NOT distribute this
 Software in any form to any other party, including any hardware on which it 
