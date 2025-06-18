@@ -4,14 +4,20 @@ This is a collection of CircuitPython code for use with TerrainTronics products 
  
  General project overview : https://lumensalis.com/Projects/LCPF
 
- - [Quick Start for the technically challenged...](docs/GettingStarted/QuickStart.MD)
+ - [Quick Start for the technically challenged...](docs/GettingStarted/QuickStart.mdx)
  
  - [Supported Controllers](docs/Controllers/SupportedControllers.MD)
    - currently the ONLY tested controller is the [LolinS2Mini ESP32-S2](docs/Controllers/LolinS2Mini.MD)
    - to setup a new LolinS2Mini, first do the [initial CircuitPython install](docs/Controllers/LolinS2Mini.MD#initial-setup), then install the [dependencies](docs/CIRCUITPY_Dependncies.MD)
 
- - [Getting Started](docs/GettingStarted/GettingStarted.MD)
+ - [Getting Started](docs/GettingStarted/GettingStarted.mdx)
  - [Repo Contents](docs/RepoContents.MD)
+
+ - [source subrepo](https://github.com/Lumensalis/LCPF) 
+  - most actual source code is in https://github.com/Lumensalis/LCPF
+  - this repo holds most of the documentation, mechanisms for
+    managing CircuitPython dependencies, and other bits related
+    to the project _other_ than the framework code
 
 # License
  
@@ -26,6 +32,11 @@ any physical products including this software pre-installed.  I'd
 prefer changing to an Open Source(ish) license, _if_ I can find one that
 allows me to keep things free and easy _only_ for personal use.
 
-If there is interest, I'll provide additional commercial license options.
+If there is interest, I'll provide additional commercial license options.  
+
+I'm also open to releasing this under a completely Open Source license in 
+exchange for ongoing support of the project, although there would be a
+ _substantial_ initial cost.  This may only be three months of effort so 
+ far, but it's based on close to three decades of experience.
 
 Actual license is in [License.txt](LICENSE.txt).
