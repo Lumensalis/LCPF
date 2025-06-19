@@ -1,3 +1,6 @@
 [submodule "lumensaliscplib"]
 	path = lumensaliscplib
 	url = https://gitlab.com/lumensalis/lumensaliscplib.git
+[submodule "LCPFDocs"]
+	path = LCPFDocs
+	url = https://github.com/Lumensalis/LCPFDocs.git
