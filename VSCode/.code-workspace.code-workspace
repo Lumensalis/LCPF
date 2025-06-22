@@ -6,7 +6,8 @@
     ],
     "settings": {
         "python.autoComplete.extraPaths": [
-             "CircuitPyPartialImage/lib"
+             "CircuitPyPartialImage/lib",
+             "lumensaliscplib/lib"
         ],
         "python.analysis.autoSearchPaths": false,
         "cSpell.words": [
@@ -49,6 +50,8 @@
                     "cmd": "python  ${workspaceFolder}\\devOps\\fileSaveSync.py  ${relativeFile}"
                 }
             ]
-        }
+        },
+        "circuitpython.board.vid": "0x303A",
+        "circuitpython.board.pid": "0x80C3"
     }
 }
