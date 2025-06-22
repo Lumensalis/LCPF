@@ -1,15 +1,13 @@
 import sys, shutil, os.path
 print( f"args = {sys.argv}" )
 
-targetDir = "E:\\lib"
-submoduleDir = 'lumensaliscplib'
+targetDir = "D:\\lib"
+submoduleDir = 'lumensaliscplib\\lib'
 
 def syncFile():
-    #with open('fss.log', 'a' ) as fssLog:
-    #    def writeLog( s:str ):
-    #        print( s, file = fssLog )
-    def writeLog( s:str ):
-        print( s )
+
+    def writeLog( s:str ): print( s )
+    
     filename = sys.argv[1]
     if not filename.startswith(submoduleDir):
         writeLog( f"skipping {filename}, not in {submoduleDir}" )
