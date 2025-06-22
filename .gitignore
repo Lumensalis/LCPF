@@ -7,13 +7,8 @@ PCB/*.zip
 *PCB/*/*backups/*.zip
 fss.log
 localTemp/*
-.VSCodeCounter/2025-06-14_10-15-34/details.md
-.VSCodeCounter/2025-06-14_10-15-34/diff-details.md
-.VSCodeCounter/2025-06-14_10-15-34/diff.csv
-.VSCodeCounter/2025-06-14_10-15-34/diff.md
-.VSCodeCounter/2025-06-14_10-15-34/diff.txt
-.VSCodeCounter/2025-06-14_10-15-34/results.csv
-.VSCodeCounter/2025-06-14_10-15-34/results.json
-.VSCodeCounter/2025-06-14_10-15-34/results.md
-.VSCodeCounter/2025-06-14_10-15-34/results.txt
+/.VSCodeCounter/
 LCPFImage.zip
+__pycache__
+*.pyc
+/lib/
