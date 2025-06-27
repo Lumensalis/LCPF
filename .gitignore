@@ -12,3 +12,5 @@ LCPFImage.zip
 __pycache__
 *.pyc
 /lib/
+/docBuild/
+sphinxSource/apidocs
