@@ -23,6 +23,7 @@
             "Cylon",
             "digitalio",
             "displayio",
+            "LCPF",
             "lolin",
             "mdns",
             "microcontroller",
@@ -52,6 +53,9 @@
             ]
         },
         "circuitpython.board.vid": "0x303A",
-        "circuitpython.board.pid": "0x80C3"
+        "circuitpython.board.pid": "0x80C3",
+        "workbench.colorTheme": "Monokai",
+        "workbench.preferredDarkColorTheme": "Abyss",
+        "python.createEnvironment.contentButton": "show"
     }
 }
