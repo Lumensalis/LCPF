@@ -6,6 +6,7 @@
     ],
     "settings": {
         "python.autoComplete.extraPaths": [
+
              "CircuitPyPartialImage/lib",
              "lumensaliscplib/lib"
         ],
@@ -16,23 +17,34 @@
             "audiocore",
             "audiomixer",
             "audiomp",
+            "Bracketable",
             "busio",
+            "cdisplaybus",
             "Cilgerran",
             "colorwheel",
             "CUID",
             "Cylon",
             "digitalio",
             "displayio",
+            "Fireable",
+            "hexlify",
+            "Identifiables",
             "LCPF",
             "lolin",
             "mdns",
             "microcontroller",
             "neopix",
+            "nlip",
+            "popleft",
             "pulseio",
             "pwmio",
             "rainbowio",
             "Refreshable",
-            "socketpool"
+            "Reloadable",
+            "rtype",
+            "socketpool",
+            "subframe",
+            "vcnl"
         ],
         "python.languageServer": "Pylance",
         "python.analysis.diagnosticSeverityOverrides": {
@@ -56,6 +68,19 @@
         "circuitpython.board.pid": "0x80C3",
         "workbench.colorTheme": "Monokai",
         "workbench.preferredDarkColorTheme": "Abyss",
-        "python.createEnvironment.contentButton": "show"
+        "python.createEnvironment.contentButton": "show",
+        "python.analysis.include": [
+            "lumensaliscplib/lib"
+        ],
+        "python.analysis.inlayHints.variableTypes": false,
+        "python.analysis.inlayHints.pytestParameters": true,
+        "python.analysis.languageServerMode": "full",
+        "python.analysis.extraPaths": [
+            "c:\\Users\\jbrel\\.vscode\\extensions\\wmerkens.vscode-circuitpython-v2-0.3.3\\boards\\0x303A\\0x80C3",
+            "c:\\Users\\jbrel\\.vscode\\extensions\\wmerkens.vscode-circuitpython-v2-0.3.3\\stubs",
+            "CircuitPyDependencies\\lib"
+        ],
+        "python.analysis.diagnosticMode": "workspace",
+        "python.analysis.typeCheckingMode": "standard"
     }
 }
