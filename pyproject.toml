@@ -1,8 +1,17 @@
 [project]
-name= = "LCPF"
+name = "LCPF"
+where = "lumensaliscplib/lib"
 
 dependencies = [
   "sphinx>=3.0.0",
   "sphinx-markdown-builder>=0.6.8",
   "sphinx-autodoc2>=0.2.0",
+]
+
+[tool.pyright]
+include = [
+    "lumensaliscplib/lib",
+]
+exclude = [
+    #"src/pyright/dist",
 ]

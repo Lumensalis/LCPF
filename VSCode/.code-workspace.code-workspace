@@ -13,10 +13,13 @@
         "python.analysis.autoSearchPaths": false,
         "cSpell.words": [
             "analogio",
+            "Artnet",
+            "ASIO",
             "audiobusio",
             "audiocore",
             "audiomixer",
             "audiomp",
+            "autodoc",
             "Bracketable",
             "busio",
             "cdisplaybus",
@@ -29,15 +32,20 @@
             "Fireable",
             "hexlify",
             "Identifiables",
+            "IRNEC",
             "LCPF",
             "lolin",
+            "lumensaliscplib",
             "mdns",
             "microcontroller",
             "neopix",
             "nlip",
+            "NLIT",
             "popleft",
             "pulseio",
             "pwmio",
+            "pylance",
+            "pyright",
             "rainbowio",
             "Refreshable",
             "Reloadable",
@@ -70,7 +78,8 @@
         "workbench.preferredDarkColorTheme": "Abyss",
         "python.createEnvironment.contentButton": "show",
         "python.analysis.include": [
-            "lumensaliscplib/lib"
+            "lumensaliscplib/lib",
+            "typings"
         ],
         "python.analysis.inlayHints.variableTypes": false,
         "python.analysis.inlayHints.pytestParameters": true,
@@ -78,9 +87,61 @@
         "python.analysis.extraPaths": [
             "c:\\Users\\jbrel\\.vscode\\extensions\\wmerkens.vscode-circuitpython-v2-0.3.3\\boards\\0x303A\\0x80C3",
             "c:\\Users\\jbrel\\.vscode\\extensions\\wmerkens.vscode-circuitpython-v2-0.3.3\\stubs",
-            "CircuitPyDependencies\\lib"
+            "",
+            "typings"
         ],
-        "python.analysis.diagnosticMode": "workspace",
-        "python.analysis.typeCheckingMode": "standard"
+        "python.analysis.diagnosticMode": "openFilesOnly",
+        "python.analysis.typeCheckingMode": "strict",
+        "python.analysis.enableTroubleshootMissingImports": false,
+        "python.analysis.includeAliasesFromUserFiles": false,
+        "python.analysis.packageIndexDepths": [
+
+            {
+                "name": "sklearn",
+                "depth": 2
+            },
+            {
+                "name": "matplotlib",
+                "depth": 2
+            },
+            {
+                "name": "scipy",
+                "depth": 2
+            },
+            {
+                "name": "django",
+                "depth": 2
+            },
+            {
+                "name": "flask",
+                "depth": 2
+            },
+            {
+                "name": "fastapi",
+                "depth": 2
+            },
+            {
+                "name": "cuda",
+                "depth": 3,
+                "includeAllSymbols": true
+            },
+            {
+                "name": "LumensalisCP",
+                "depth": 5
+            },
+            {
+                "name": "TerrainTronics",
+                "depth": 5
+            },
+        ],
+        "python.analysis.exclude": [
+            "**/node_modules",
+            ".git",
+            "**/__pycache__",
+            "lumensaliscplib"
+        ],
+        "python.analysis.supportAllPythonDocuments": true,
+        "pylint.cwd": "${workspaceFolder}\\lumensaliscplib\\lib",
+        "pylint.enabled": true
     }
 }
