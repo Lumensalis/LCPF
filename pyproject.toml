@@ -15,3 +15,19 @@ include = [
 exclude = [
     #"src/pyright/dist",
 ]
+
+[tool.pylint.'MESSAGES CONTROL']
+disable = """
+    wildcard-import,
+    unused-wildcard-import,
+    unused-import,
+    multiple-imports,
+    invalid-name,
+    trailing-whitespace,
+    missing-function-docstring,
+    missing-class-docstring,
+    missing-module-docstring,
+    multiple-statements,
+    line-too-long,
+    consider-using-f-string
+"""

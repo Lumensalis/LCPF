@@ -26,6 +26,7 @@
             "Cilgerran",
             "colorwheel",
             "CUID",
+            "currentframe",
             "Cylon",
             "digitalio",
             "displayio",
@@ -45,6 +46,7 @@
             "pulseio",
             "pwmio",
             "pylance",
+            "pylint",
             "pyright",
             "rainbowio",
             "Refreshable",
@@ -52,6 +54,7 @@
             "rtype",
             "socketpool",
             "subframe",
+            "vararg",
             "vcnl"
         ],
         "python.languageServer": "Pylance",
