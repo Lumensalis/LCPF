@@ -24,12 +24,14 @@
             "busio",
             "cdisplaybus",
             "Cilgerran",
+            "circuitpython",
             "colorwheel",
             "CUID",
             "currentframe",
             "Cylon",
             "digitalio",
             "displayio",
+            "expanduser",
             "Fireable",
             "hexlify",
             "Identifiables",
@@ -49,13 +51,16 @@
             "pylint",
             "pyright",
             "rainbowio",
+            "realpath",
             "Refreshable",
             "Reloadable",
             "rtype",
             "socketpool",
             "subframe",
+            "USERPROFILE",
             "vararg",
-            "vcnl"
+            "vcnl",
+            "wmerkens"
         ],
         "python.languageServer": "Pylance",
         "python.analysis.diagnosticSeverityOverrides": {
@@ -90,8 +95,7 @@
         "python.analysis.extraPaths": [
             "c:\\Users\\jbrel\\.vscode\\extensions\\wmerkens.vscode-circuitpython-v2-0.3.3\\boards\\0x303A\\0x80C3",
             "c:\\Users\\jbrel\\.vscode\\extensions\\wmerkens.vscode-circuitpython-v2-0.3.3\\stubs",
-            "",
-            "typings"
+            "c:\\Users\\jbrel\\.vscode\\extensions\\wmerkens.vscode-circuitpython-v2-0.3.3\\stubs"
         ],
         "python.analysis.diagnosticMode": "openFilesOnly",
         "python.analysis.typeCheckingMode": "strict",

@@ -1,1 +1,34 @@
+[project]
+name = "LCPF"
+where = "lumensaliscplib/lib"
 
+dependencies = [
+  "sphinx>=3.0.0",
+  "sphinx-markdown-builder>=0.6.8",
+  "sphinx-autodoc2>=0.2.0",
+]
+
+[tool.pyright]
+include = [
+    "lumensaliscplib/lib",
+]
+exclude = [
+    #"src/pyright/dist",
+]
+
+[tool.pylint.'MESSAGES CONTROL']
+disable = """
+    wildcard-import,
+    unused-wildcard-import,
+    unused-import,
+    multiple-imports,
+    invalid-name,
+    trailing-whitespace,
+    missing-function-docstring,
+    missing-class-docstring,
+    missing-module-docstring,
+    multiple-statements,
+    line-too-long,
+    consider-using-f-string,
+    fixme
+"""
