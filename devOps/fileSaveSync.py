@@ -1,32 +1,35 @@
-import sys, shutil, os.path
-print( f"args = {sys.argv}" )
+import sys, shutil
+from mpyHelper import *
 
+print( f"args = {sys.argv}" )
 targetDir = "D:\\lib"
-submoduleDir = 'lumensaliscplib\\lib'
+
 
 def syncFile():
 
-    def writeLog( s:str ): print( s )
-    
     filename = sys.argv[1]
+    filename = filename.replace('\\', '/')
     if not filename.startswith(submoduleDir):
         writeLog( f"skipping {filename}, not in {submoduleDir}" )
         return
     ext = os.path.splitext(filename)[1]
-    if ext in [".pyc", ".pyo", ".pyd", ".so", 'pyi']:
+    if ext in [".pyc", ".pyo", ".pyd", ".so", '.pyi', ".mpy"]:
         writeLog( f"skipping {filename}, not a python source file" )
         return
-    inLibFilename = filename[len(submoduleDir)+1:]
-    target = os.path.join( targetDir,inLibFilename )
-    writeLog( f"updating {filename} to {target}" )
+
+    mpyFile = MpyFileHelper(filename)
+    writeLog("---" )
+    writeLog( f"detected save of {filename}" )
+    makeMpyFile( mpyFile )
+    
+    sourcePath = mpyFile.mpyCrossOutputFilename
+    destPath = os.path.join( targetDir, mpyFile.mpyTarget )
+
+    writeLog( f"copying {sourcePath} to {destPath}" )
     try:
-        shutil.copy( filename, target )
+        shutil.copy( sourcePath, destPath )
     except Exception as inst:
-        if not os.path.exists(os.path.dirname(target)):
-            writeLog( f"Creating directory {os.path.dirname(target)}" )
-            shutil.copy( filename, target )
-        else:
-            writeLog( f"Failed to copy {filename} to {target}: {inst}" )
+        writeLog( f"Failed to copy {sourcePath} to {destPath}: {inst}" )
 
 
 if __name__ == "__main__":

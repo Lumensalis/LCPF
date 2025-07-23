@@ -88,7 +88,8 @@
         "python.createEnvironment.contentButton": "show",
         "python.analysis.include": [
             "${workspaceFolder}/lumensaliscplib/lib",
-            "${workspaceFolder}/typings"
+            "${workspaceFolder}/typings",
+            "${workspaceFolder}/devOps"
         ],
         "python.analysis.inlayHints.variableTypes": false,
         "python.analysis.inlayHints.pytestParameters": true,
