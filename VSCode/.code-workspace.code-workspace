@@ -57,6 +57,7 @@
             "rtype",
             "socketpool",
             "subframe",
+            "terminalio",
             "USERPROFILE",
             "vararg",
             "vcnl",
@@ -86,8 +87,8 @@
         "workbench.preferredDarkColorTheme": "Abyss",
         "python.createEnvironment.contentButton": "show",
         "python.analysis.include": [
-            "lumensaliscplib/lib",
-            "typings"
+            "${workspaceFolder}/lumensaliscplib/lib",
+            "${workspaceFolder}/typings"
         ],
         "python.analysis.inlayHints.variableTypes": false,
         "python.analysis.inlayHints.pytestParameters": true,
@@ -102,6 +103,7 @@
         "python.analysis.enableTroubleshootMissingImports": false,
         "python.analysis.includeAliasesFromUserFiles": false,
         "python.analysis.packageIndexDepths": [
+
 
             {
                 "name": "sklearn",
@@ -134,7 +136,8 @@
             },
             {
                 "name": "LumensalisCP",
-                "depth": 5
+                "depth": 11,
+                "includeAllSymbols": true
             },
             {
                 "name": "TerrainTronics",
@@ -145,10 +148,12 @@
             "**/node_modules",
             ".git",
             "**/__pycache__",
-            "lumensaliscplib"
+            "${workspaceFolder}/"
         ],
         "python.analysis.supportAllPythonDocuments": true,
         "pylint.cwd": "${workspaceFolder}\\lumensaliscplib\\lib",
-        "pylint.enabled": true
+        "pylint.enabled": true,
+        "python.terminal.activateEnvInCurrentTerminal": true,
+        "python.analysis.persistAllIndices": false
     }
 }
