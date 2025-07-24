@@ -23,7 +23,12 @@ def syncFile():
     makeMpyFile( mpyFile )
     
     sourcePath = mpyFile.mpyCrossOutputFilename
+    
     destPath = os.path.join( targetDir, mpyFile.mpyTarget )
+    destTargetDir = os.path.dirname(destPath)
+    if not os.path.exists( destTargetDir ):
+        writeLog( f"making  {destTargetDir}" )
+        os.makedirs( destTargetDir )
 
     writeLog( f"copying {sourcePath} to {destPath}" )
     try:
