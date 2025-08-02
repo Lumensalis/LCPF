@@ -6,6 +6,6 @@ targetFile="../LCPF_CP_Install.zip"
 
 cd CircuitPyDependencies
 zip ${zipOpts} ${targetFile} *
-cd ../lumensaliscplib
+cd ../lumensaliscplib/out
 zip ${zipOpts} ${targetFile} *
 cd ..   
