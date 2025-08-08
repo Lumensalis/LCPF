@@ -1,10 +1,16 @@
 import sys, os.path, subprocess, shutil
 
+USE_PYTHON_MPY_CROSS = False
+
+if USE_PYTHON_MPY_CROSS:
+    import mpy_cross
+
 submoduleDir = 'lumensaliscplib/lib'
-submoduleOutDir = 'lumensaliscplib/out'
+submoduleOutDir = 'lumensaliscplib/out/lib'
 
 def writeLog( s:str ): 
     print( s )
+    #pass
 
 class MpyFileHelper:
     def __init__(self, filename:str):
@@ -28,24 +34,33 @@ def makeMpyFile( mpyFile :MpyFileHelper ):
         writeLog( f"Creating directory {mpyFile.mpyFileDir}" )
         os.makedirs(mpyFile.mpyFileDir, exist_ok=True)
     
-    writeLog( f"creating {mpyFile.mpyCrossOutputFilename} from {mpyFile.filename}" )
     try:
         if os.path.exists(mpyFile.mpyCrossOutputFilename):
             os.remove(mpyFile.mpyCrossOutputFilename)
         if mpyFile.mpyExtension == ".mpy":
-            commandParts = [
-                'run-mpy-cross.bat', 
-                "-o", mpyFile.mpyCrossOutputFilename,
-                '-s', mpyFile.sourceEmbeddedFilename,
-                mpyFile.filename
-            ]
-            writeLog( f"Running command: {' '.join(commandParts)}" )
-            subprocess.run( commandParts, check=True, shell=True )
+            writeLog( f"creating {mpyFile.mpyCrossOutputFilename} from {mpyFile.filename}" )
+    
+            if USE_PYTHON_MPY_CROSS:
+                mpy_cross.run(# *args, **kwargs)
+                    "-o", mpyFile.mpyCrossOutputFilename,
+                    '-s', mpyFile.sourceEmbeddedFilename,
+                    mpyFile.filename
+                )
+            else:
+                commandParts = [
+                    'run-mpy-cross.bat', 
+                    "-o", mpyFile.mpyCrossOutputFilename,
+                    '-s', mpyFile.sourceEmbeddedFilename,
+                    mpyFile.filename
+                ]
+                #writeLog( f"Running command: {' '.join(commandParts)}" )
+                subprocess.run( commandParts, check=True, shell=True )
         else:
             assert mpyFile.mpyExtension == ".py", f"Unsupported extension {mpyFile.mpyExtension}"
             writeLog( f"Copying {mpyFile.filename} to {mpyFile.mpyCrossOutputFilename}" )
             shutil.copy(mpyFile.filename, mpyFile.mpyCrossOutputFilename)
         assert os.path.exists(mpyFile.mpyCrossOutputFilename), f"Failed to create {mpyFile.mpyCrossOutputFilename}"
+    
     except Exception as inst:
         writeLog( f"Failed to create {mpyFile.mpyCrossOutputFilename}: {inst}" )
         sys.exit    

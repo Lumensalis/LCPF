@@ -1,7 +1,7 @@
 import sys, shutil
 from mpyHelper import *
 
-print( f"args = {sys.argv}" )
+#print( f"args = {sys.argv}" )
 targetDir = "D:\\lib"
 
 

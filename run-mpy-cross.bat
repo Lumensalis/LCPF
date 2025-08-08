@@ -1,1 +1,2 @@
+ @echo off
  wsl  ~/git/circuitpython/mpy-cross/build/mpy-cross %*

@@ -2,7 +2,7 @@
 
 set CIRCUITPY_FLASH_PATH=D:
 rem set CIRCUITPY_IMAGE_PATH=.\lumensaliscplib\lib
-set CIRCUITPY_IMAGE_PATH=.\lumensaliscplib\out
+set CIRCUITPY_IMAGE_PATH=.\lumensaliscplib\out\lib
 set CIRCUITPY_DEPENDNCIES_PATH=.\CircuitPyDependencies
 set ROBOCOPY_NONVERBOSE= /NJH /NJS /NDL
 set ROBOCOPY_ARGS=/E /XD .git /XD __pycache__ /XF *.pyc /XF *.pyi /COPY:DAT  /XO /FFT /DST /TS /NOCLONE /TIMFIX /NJH 
