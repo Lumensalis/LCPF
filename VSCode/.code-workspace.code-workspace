@@ -108,9 +108,9 @@
         "python.analysis.inlayHints.pytestParameters": true,
         "python.analysis.languageServerMode": "full",
         "python.analysis.extraPaths": [
-            "c:\\Users\\jbrel\\.vscode\\extensions\\wmerkens.vscode-circuitpython-v2-0.3.3\\boards\\0x303A\\0x80C3",
-            "c:\\Users\\jbrel\\.vscode\\extensions\\wmerkens.vscode-circuitpython-v2-0.3.3\\stubs",
-            ""
+            "c:\\Users\\jbrel\\.vscode\\extensions\\jbrelwof.vscode-circuitpython-v2-jbf-0.3.5\\boards\\0x303A\\0x80C3",
+            "c:\\Users\\jbrel\\.vscode\\extensions\\jbrelwof.vscode-circuitpython-v2-jbf-0.3.5\\stubs",
+            "c:\\Users\\jbrel\\AppData\\Roaming\\Code\\User\\globalStorage\\jbrelwof.vscode-circuitpython-v2-jbf\\bundle\\20250807\\adafruit-circuitpython-bundle-py-20250807\\lib"
         ],
         "python.analysis.diagnosticMode": "workspace",
         "python.analysis.typeCheckingMode": "strict",
