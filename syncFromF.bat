@@ -1,6 +1,6 @@
 @echo off
 
-set CIRCUITPY_FLASH_PATH=D:
+set CIRCUITPY_FLASH_PATH=E:
 rem set CIRCUITPY_IMAGE_PATH=.\lumensaliscplib\lib
 set CIRCUITPY_IMAGE_PATH=.\lumensaliscplib\out\lib
 set CIRCUITPY_DEPENDNCIES_PATH=.\CircuitPyDependencies
