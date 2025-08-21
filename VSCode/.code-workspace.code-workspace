@@ -38,6 +38,7 @@
             "expanduser",
             "hexlify",
             "Identifiables",
+            "Interactable",
             "Invocable",
             "IRNEC",
             "isenabled",
