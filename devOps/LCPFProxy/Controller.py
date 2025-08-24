@@ -4,17 +4,12 @@ from __future__ import annotations
 
 import importlib
 import re
-from typing import Any, Optional, TypeAlias, Callable, Dict 
-import requests, sys, os.path
-from rich.pretty import pprint
-import importlib
+from typing import Any, Optional, TypeAlias, Callable, Dict
+from urllib import response 
+import requests, sys, os.path, json
 
+from LCPFProxy import NiProxy
 #############################################################################
-
-def reloadLumenJupyterHelpers():
-    import LumenJupyterHelpers
-    importlib.reload(LumenJupyterHelpers)
-
 
 class ResponseWrapper(object):
     def __init__(self, response: requests.Response):
@@ -30,6 +25,8 @@ class ResponseWrapper(object):
             return f"ResponseWrapper({self.response.status_code}) : {self.json()}"
         except Exception as e:
             return f"ResponseWrapper(Error: {e}) : {self.response}"
+
+#############################################################################
 
 class ControllerProxy(object):
     def __init__(self, ip:str, port:int=5000):
@@ -49,5 +46,23 @@ class ControllerProxy(object):
 
     def sakRL(self, **kwds:Any) -> ResponseWrapper:
         return self.post(f"sakReload", **kwds)
+    
 
-#############################################################################
+
+    def proxy( self, path:Optional[str] = None ) -> NiProxy.LocalIdentifiableProxy:
+
+        
+        response = requests.post(f"{self.url}/proxyReload" ,
+            json={ 'path': path }
+            )
+        t = response.text
+        try:
+            j = response.json()
+        except json.JSONDecodeError as e:
+            j = {"error": f"Failed to parse JSON from response: {t}"}
+            print(f"Error parsing JSON {t} : {e}")
+            raise
+
+        importlib.reload(NiProxy)
+        return NiProxy.LocalIdentifiableProxy.make(**j['result'])
+    
