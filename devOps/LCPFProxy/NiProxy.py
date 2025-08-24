@@ -1,56 +1,23 @@
 from __future__ import annotations
 
-from re import S
 import weakref, json, requests, importlib
 from collections import OrderedDict
 from typing import *
 
 
+from .NiProxySession import NliProxySession, SessionSpecific
+
 if TYPE_CHECKING:
-    from .NiProxySession import NliProxySession
+    
     import rich.repr
+    from .Proxies.Tunables import TunableSettings, SettingsDict
+
 
 #############################################################################
 
 from . import NiProxyRL
 
-class InteractableSpecDict( TypedDict):
-    kindMatch:str
-    name:str
-    startingValue:  Any
-    min: NotRequired[Any]
-    max: NotRequired[Any]
-    kind: str
-    description: str
 
-class ActiveSettingDict( TypedDict):
-    spec: InteractableSpecDict
-    active: dict[str, Any]
-    cls: str
-    name: str
-    value: Any
-
-class InactiveSettingDict( TypedDict):
-    cls: str
-    name: str
-    default: Any
-    kwds: dict[str, Any]
-
-
-class SettingsDict( TypedDict):
-    active: list[ActiveSettingDict]
-    inactive: list[InactiveSettingDict]
-
-
-class TunableSettings:
-    def __init__(self, settings: SettingsDict) -> None:
-        self.active = settings['active']
-        self.inactive = settings['inactive']
-        assert len(settings) == 2
-
-    def __rich_repr__(self) -> rich.repr.Result:
-        yield "active", self.active
-        yield "inactive", self.inactive
 
 class NLIProxyBaseDict(TypedDict, total=False):
     name: Required[str]
@@ -68,6 +35,8 @@ class NLIProxyCmdResponse(TypedDict, total=False):
     error:str|None
     result:NotRequired[ NLIProxyBaseDict    ]
 
+
+#############################################################################
 class NLIProxyMeta(type):
     '''meta class which registers proxy types'''
     
@@ -77,16 +46,17 @@ class NLIProxyMeta(type):
         NLIProxyMeta.NLIProxyClasses[obj.__name__] = obj
         return obj
 
-
-class LocalIdentifiableProxy(object, metaclass=NLIProxyMeta):
+class LocalIdentifiableProxy(SessionSpecific, metaclass=NLIProxyMeta):
     NLIProxyClasses:ClassVar[dict[str,type]] = NLIProxyMeta.NLIProxyClasses
 
     containers: NLIContainer
     children: NLIContainer
     items: NLIContainer
 
+    
+
     def __init__(self, session: NliProxySession, **kwds: Unpack[NLIProxyBaseDict]):
-        self.__session = weakref.ref(session)
+        super().__init__(session)
         self.name = kwds.get("name")
         self.type = kwds.get("type")
         self.localId = kwds.get("localId")
@@ -95,7 +65,7 @@ class LocalIdentifiableProxy(object, metaclass=NLIProxyMeta):
 
         settings = kwds.get("settings", None)
         if settings is not None:
-            settings = TunableSettings(settings)
+            settings = LCPFProxy.Proxies.Tunables.TunableSettings(session,settings)
 
         self.settings = settings
 
@@ -104,14 +74,9 @@ class LocalIdentifiableProxy(object, metaclass=NLIProxyMeta):
         self._addKids('items', kwds.get("items", None))
         self.recurse = kwds.get("recurse", None)
 
-
-    @property
-    def session(self) -> NliProxySession:
-        return self.__session()
-
-    def postProxyCmd( self, cmd: str, **kwargs: Any ) -> NLIProxyCmdResponse:
-        print( f"{self.__class__.__name__}({self.localId}) postProxyCmd: {cmd} {kwargs}" )
-        return self.session.postProxyCmd( cmd, localId=self.localId, **kwargs )
+    def postProxyCmd( self, cmd: str,*args: Any, **kwargs: Any ) -> NLIProxyCmdResponse:
+        print( f"{self.__class__.__name__}({self.localId}) postProxyCmd: {cmd} {args} {kwargs}" )
+        return self.session.postProxyCmd( cmd, localId=self.localId, *args, **kwargs )
 
     @property
     def enableDbgOut(self) -> bool:
@@ -173,19 +138,21 @@ class LocalIdentifiableProxy(object, metaclass=NLIProxyMeta):
     def __rich_repr__(self) -> rich.repr.Result:
         yield from NiProxyRL.LocalIdentifiableProxy__rich_repr__(self)
 
+    def act(self, action:str, *args:Any,**kwds:Any) -> Any:
+        return NiProxyRL.LocalIdentifiableProxy_act(self, action, *args, **kwds )
+    
+
     def sak(self,*args:Any,**kwds:Any) -> Any:
         return NiProxyRL.LocalIdentifiableProxy_sak(self, *args, **kwds )
 
     def rl(self) -> Any:
         from . import NiProxyRL
         importlib.reload( NiProxyRL)
-        #return NiProxyRL.LocalIdentifiableProxy_rl(self)
+        return NiProxyRL.LocalIdentifiableProxy_rl(self)
 
     @staticmethod
     def make(session: NliProxySession, **kwds: Unpack[NLIProxyBaseDict]) -> LocalIdentifiableProxy:
-        type = kwds.get("type")
-        cls = LocalIdentifiableProxy.NLIProxyClasses.get(type, LocalIdentifiableProxy)
-        return cls(session, **kwds)
+        return NiProxyRL.LocalIdentifiableProxy_make(session, **kwds)
 
 class NLIContainer(object):
      
@@ -233,5 +200,6 @@ class NliList(LocalIdentifiableProxy):
 
 #############################################################################
 
+import LCPFProxy.Proxies.Tunables
 
 #############################################################################

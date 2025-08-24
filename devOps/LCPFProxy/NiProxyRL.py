@@ -6,11 +6,15 @@ from typing import * # type: ignore
 
 from LCPFProxy import NiProxy
 
+# pyright: reportPrivateUsage=false, reportUnusedImport=false
+
 if TYPE_CHECKING:
     from .NiProxy import LocalIdentifiableProxy, NLIContainer, NliList, LocalIdentifiableProxy
+    from .NiProxy import TunableSettings, NLIProxyBaseDict
+    from .NiProxySession import NliProxySession
     import rich.repr
 
-# pyright : reportPrivateUsage=false
+
 
 def _containerContent( self:LocalIdentifiableProxy, containerName:str ):
     container = getattr(self, containerName, None)
@@ -61,6 +65,11 @@ def LocalIdentifiableProxy__rich_repr__(self:LocalIdentifiableProxy) -> rich.rep
     if self.settings is not None:
         yield "settings", self.settings
 
+def LocalIdentifiableProxy_act(self:LocalIdentifiableProxy, action:str, *args:Any, **kwds:Any) -> Any:
+    response = self.postProxyCmd('act', action=action, positionalArgs=args, kwdArgs=kwds )
+    assert 'act'in response, f"Invalid response from act: {response}"
+    return response['act']
+
 def LocalIdentifiableProxy_sak(self:LocalIdentifiableProxy, *args:Any, **kwds:Any) -> Any:
     pass
 
@@ -68,3 +77,10 @@ def LocalIdentifiableProxy_rl(self:LocalIdentifiableProxy) -> Any:
     from . import NiProxyRL
     importlib.reload( NiProxyRL)
     pass
+
+
+def LocalIdentifiableProxy_make(session: NliProxySession, **kwds: Unpack[NLIProxyBaseDict]) -> LocalIdentifiableProxy:
+    from .NiProxy import LocalIdentifiableProxy
+    type = kwds.get("type")
+    cls = LocalIdentifiableProxy.NLIProxyClasses.get(type, LocalIdentifiableProxy)
+    return cls(session, **kwds)
